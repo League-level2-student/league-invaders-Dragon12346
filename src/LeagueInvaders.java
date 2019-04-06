@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class LeagueInvaders {
 	 JFrame frame = new JFrame();
@@ -12,5 +13,6 @@ void setup(){
 	frame.setSize(WIDTH, HEIGHT);
 	frame.setVisible(true);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	frame.add(GamePanel);
 }
 }
