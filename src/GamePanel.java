@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel{
-	Font titleFont = new Font("Arial", Font.ITALIC, 48);
+	Font titleFont = new Font("Arial", Font.PLAIN, 48);
 	final int MENU = 0;
     final int GAME = 1;
     final int END = 2;
