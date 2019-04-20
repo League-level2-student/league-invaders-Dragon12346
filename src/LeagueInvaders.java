@@ -12,6 +12,7 @@ F.setup();
 }
 void setup(){
 	frame.add(gp);
+	frame.addKeyListener(gp);
 	frame.setSize(WIDTH, HEIGHT);
 	frame.setVisible(true);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
