@@ -6,9 +6,12 @@ public class GameObject {
 	int y;
 	int width;
 	int height;
-	int speed = 0;
+	int speed = 20;
 		GameObject(int x, int y, int width, int height){
-			
+			this.x = x;
+			this.y = y;
+			this.height = height;
+			this.width = width;
 		}
 
 	
