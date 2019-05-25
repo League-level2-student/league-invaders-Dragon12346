@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -17,6 +18,34 @@ ObjectManager (Rocketship rocket){
 	}
 	void update() {
 		
+		for (Alien alien: aliens) {
+			alien.update();
+			if (alien.y>LeagueInvaders.HEIGHT) {
+				alien.isActive = false;
+			}
+		}
+		for (Projectile proj: projectiles) {
+			proj.update();
+			if (proj.y<0) {
+				proj.isActive = false;
+			}
+		}
+	}
+	void draw(Graphics g) {
+		rocket.draw(g);
+		for (Alien alien: aliens) {
+			alien.draw(g);
+		}
+		for (Projectile proj: projectiles) {
+			proj.draw(g);
+		}
+	}
+	void purgeObjects() {
+		for (int i = 0; i < aliens.size(); i++) {
+			if (!aliens.get(i).isActive) {
+				aliens.remove(i);
+			}
+		}
 	}
 	
 }
