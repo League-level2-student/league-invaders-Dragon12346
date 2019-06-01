@@ -5,8 +5,8 @@ import java.util.Random;
 public class ObjectManager {
 Rocketship rocket;
 Random random = new Random();
-ArrayList<Projectile> projectiles;
-ArrayList<Alien> aliens;
+ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
+ArrayList<Alien> aliens = new ArrayList<Alien>();
 ObjectManager (Rocketship rocket){
 	this.rocket = rocket;
 }
@@ -44,6 +44,11 @@ ObjectManager (Rocketship rocket){
 		for (int i = 0; i < aliens.size(); i++) {
 			if (!aliens.get(i).isActive) {
 				aliens.remove(i);
+			}
+		}
+		for (int i = 0; i < projectiles.size(); i++) {
+			if (!projectiles.get(i).isActive) {
+				projectiles.remove(i);
 			}
 		}
 	}

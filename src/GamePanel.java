@@ -20,6 +20,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int GAME = 1;
 	final int END = 2;
 	int currentState = MENU;
+	ObjectManager h = new ObjectManager(rs);
 
 	public GamePanel() {
 		frameDraw = new Timer(1000 / 60, this);
@@ -42,6 +43,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	void updateGameState() {
+		h.update();
 	}
 
 	void updateEndState() {
@@ -62,7 +64,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	void drawGameState(Graphics g) {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
-		rs.draw(g);
+		h.draw(g);
 
 	}
 
