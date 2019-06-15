@@ -17,6 +17,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public static boolean needImage = true;
 	public static boolean gotImage = false;	
 	Timer frameDraw;
+	Timer alienSpawn;
 	Font titleFont = new Font("Arial", Font.PLAIN, 48);
 	Font titleFont2 = new Font("Arial", Font.PLAIN, 25);
 	Rocketship rs = new Rocketship(250, 700, 50, 50);
@@ -25,7 +26,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int END = 2;
 	int currentState = MENU;
 	ObjectManager h = new ObjectManager(rs);
-
+	void startGame(){ 
+	    alienSpawn = new Timer(1000 , objectManager);
+	    alienSpawn.start();
+	}
 	public GamePanel() {
 		if (needImage) {
 		    loadImage ("space.png");
