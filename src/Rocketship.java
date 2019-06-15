@@ -11,12 +11,11 @@ public class Rocketship extends GameObject {
 		Rocketship(int x, int y, int width, int height) {
 			super(x, y, width, height);
 			if (needImage) {
-			    loadImage ("rocket.png");
+			    loadImage ("alien.png");
 			}
 		} 
 		void draw(Graphics g) {
-			g.setColor(Color.BLUE);
-	        g.fillRect(x, y, width, height);
+	
 	        if (gotImage) {
 	        	g.drawImage(image, x, y, width, height, null);
 	        } else {
@@ -36,6 +35,9 @@ public class Rocketship extends GameObject {
 	    public void down() {
 	        y+=speed;
 	    }
+	    public Projectile getProjectile() {
+	        return new Projectile(x+width/2, y, 10, 10);
+	} 
 	    void loadImage(String imageFile) {
 	        if (needImage) {
 	            try {
