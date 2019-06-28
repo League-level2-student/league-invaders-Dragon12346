@@ -27,7 +27,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	int currentState = MENU;
 	ObjectManager h = new ObjectManager(rs);
 	void startGame(){ 
-	    alienSpawn = new Timer(1000 , objectManager);
+	    alienSpawn = new Timer(5000, h);
 	    alienSpawn.start();
 	}
 	public GamePanel() {
@@ -90,7 +90,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
 		}
 		h.draw(g);
-
+		startGame();
 	}
 
 	void drawEndState(Graphics g) {
