@@ -20,7 +20,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Timer alienSpawn;
 	Font titleFont = new Font("Arial", Font.PLAIN, 48);
 	Font titleFont2 = new Font("Arial", Font.PLAIN, 25);
-	Rocketship rs = new Rocketship(950, 700, 50, 50);
+	Rocketship rs = new Rocketship(225, 700, 50, 50);
 	final int MENU = 0;
 	final int GAME = 1;
 	final int END = 2;
@@ -34,7 +34,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (needImage) {
 		    loadImage ("space.png");
 		}
-		frameDraw = new Timer(1000000 / 60, this);
+		frameDraw = new Timer(1000 / 60, this);
 		frameDraw.start();
 		
 	}
@@ -100,12 +100,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if (currentState == MENU) {
-			updateMenuState();
-		} else if (currentState == GAME) {
-			updateGameState();
-		} else if (currentState == END) {
-			updateEndState();
+		if(currentState == MENU){
+		    updateMenuState();
+		}else if(currentState == GAME){
+		    updateGameState();
+		}else if(currentState == END){
+		    updateEndState();
 		}
 		System.out.println("action");
 		repaint();
