@@ -95,6 +95,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	void drawEndState(Graphics g) {
 		g.setColor(Color.RED);
 		g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
+		
 	}
 
 	@Override
@@ -128,6 +129,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			else {
 				currentState++;
 			}
+			if (currentState == GAME) {
+				startGame();
+				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+					h.addProjectile(rs.getProjectile());
+				}
+			}
+			
 			
 			
 		}
@@ -161,9 +169,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			if (rs.y > 0) {
 				rs.up();
 			}
-			//if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			//	h.addProjectile(rs.getProjectile());
-			//}
 		}
 
 	}
