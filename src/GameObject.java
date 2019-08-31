@@ -1,3 +1,4 @@
+import java.awt.Rectangle;
 
 public class GameObject {
 
@@ -6,10 +7,12 @@ public class GameObject {
 	int y;
 	int width;
 	int height;
+	Rectangle Rect;
 	int speed = 20;
 	int aSpeed = 1;
 	int pSpeed = 10;
 		GameObject(int x, int y, int width, int height){
+			Rect (50,50,50,50);
 			this.x = x;
 			this.y = y;
 			this.height = height;
