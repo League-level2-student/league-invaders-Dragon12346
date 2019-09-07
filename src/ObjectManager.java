@@ -31,6 +31,7 @@ ObjectManager (Rocketship rocket){
 			if (proj.y<0) {
 				proj.isActive = false;
 			}
+
 		}
 	}
 	void draw(Graphics g) {
@@ -54,6 +55,17 @@ ObjectManager (Rocketship rocket){
 			}
 		}
 	}
+	void checkCollision(){
+		for (int i = 0; i < aliens.size(); i++) {
+			
+			for (int j = 0; j < projectiles.size(); j++) {
+				 
+					
+				}
+			}
+		}
+	
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub

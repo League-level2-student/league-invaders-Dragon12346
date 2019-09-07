@@ -22,8 +22,9 @@ public class Projectile extends GameObject{
 			g.fillRect(x, y, width, height);
 		}
 	}
-	void update() {
+	public void update() {
 		y-=pSpeed;
+		super.update();
 	}
 	void loadImage(String imageFile) {
 	    if (needImage) {
