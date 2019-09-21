@@ -57,7 +57,9 @@ ObjectManager (Rocketship rocket){
 	}
 	void checkCollision(){
 		for (int i = 0; i < aliens.size(); i++) {
-			
+			if (rocket.collisionBox.intersects(aliens.get(i).collisionBox)) {
+					
+				}
 			for (int j = 0; j < projectiles.size(); j++) {
 				 
 					
