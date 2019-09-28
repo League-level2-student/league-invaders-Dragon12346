@@ -15,7 +15,7 @@ import javax.swing.Timer;
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public static BufferedImage image;
 	public static boolean needImage = true;
-	public static boolean gotImage = false;	
+	public static boolean gotImage = false;
 	Timer frameDraw;
 	Timer alienSpawn;
 	Font titleFont = new Font("Arial", Font.PLAIN, 48);
@@ -26,29 +26,33 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int END = 2;
 	int currentState = MENU;
 	ObjectManager h = new ObjectManager(rs);
-	void startGame(){ 
-	    alienSpawn = new Timer(1000, h);
-	    alienSpawn.start();
+
+	void startGame() {
+		alienSpawn = new Timer(1000, this);
+		alienSpawn.start();
 	}
+
 	public GamePanel() {
 		if (needImage) {
-		    loadImage ("space.png");
+			loadImage("space.png");
 		}
 		frameDraw = new Timer(1000 / 60, this);
 		frameDraw.start();
-		
+		startGame();
 	}
+
 	void loadImage(String imageFile) {
-	    if (needImage) {
-	        try {
-	            image = ImageIO.read(this.getClass().getResourceAsStream(imageFile));
-		    gotImage = true;
-	        } catch (Exception e) {
-	            
-	        }
-	        needImage = false;
-	    }
+		if (needImage) {
+			try {
+				image = ImageIO.read(this.getClass().getResourceAsStream(imageFile));
+				gotImage = true;
+			} catch (Exception e) {
+
+			}
+			needImage = false;
+		}
 	}
+
 	@Override
 	public void paintComponent(Graphics g) {
 		if (currentState == MENU) {
@@ -95,47 +99,46 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	void drawEndState(Graphics g) {
 		g.setColor(Color.RED);
 		g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
-		
+
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(currentState == MENU){
-		    updateMenuState();
-		}else if(currentState == GAME){
-		    updateGameState();
-		}else if(currentState == END){
-		    updateEndState();
+		if (currentState == MENU) {
+			updateMenuState();
+		} else if (currentState == GAME) {
+			updateGameState();
+		} else if (currentState == END) {
+			updateEndState();
 		}
 		System.out.println("action");
 		repaint();
+		if (e.getSource() == alienSpawn) {
+			h.addAlien();
+		}
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 
-	} 
+	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			if (currentState == END) {
 				currentState = MENU;
-			} 
-			else {
+			} else {
 				currentState++;
 			}
 
-			
-			
-			
 		}
 		if (currentState == GAME) {
-			startGame();
+
 			if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 				h.addProjectile(rs.getProjectile());
 			}
@@ -179,5 +182,5 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 }

@@ -30,10 +30,11 @@ ObjectManager (Rocketship rocket){
 			proj.update();
 			if (proj.y<0) {
 				proj.isActive = false;
-			}
-
+			}		
 		}
-	}
+		checkCollision();
+		purgeObjects();
+		}
 	void draw(Graphics g) {
 		rocket.draw(g);
 		for (Alien alien: aliens) {
@@ -71,7 +72,7 @@ ObjectManager (Rocketship rocket){
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		addAlien();
+		
 	}
 	
 }
